@@ -102,3 +102,7 @@ result = mean_absolute_error(test["n_citation"].values, model.predict(test_final
 print("Lasso Regression Result: " + str(result))
 #Apply it on Xgboost
 from xgboost import XGBRegressor
+model = XGBRegressor(n_estimators=1000)
+model.fit(train_final,train["n_citation"].values)
+result = mean_absolute_error(test["n_citation"].values, model.predict(test_final))
+print("XGBRegressor Regression Result: " + str(result))
